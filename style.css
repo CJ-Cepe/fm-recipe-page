@@ -9,14 +9,14 @@
 }
 
 :root {
-    --Nutmeg: hsl(14, 45%, 36%); /* / */
-    --Dark-Raspberry: hsl(332, 51%, 32%); /* / */
-    --White: hsl(0, 0%, 100%); /* / */
-    --Rose-White: hsl(330, 100%, 98%); /* / */
+    --Nutmeg: hsl(14, 45%, 36%);
+    --Dark-Raspberry: hsl(332, 51%, 32%);
+    --White: hsl(0, 0%, 100%);
+    --Rose-White: hsl(330, 100%, 98%);
     --Eggshell: hsl(30, 54%, 90%);
     --Light-Grey: hsl(30, 18%, 87%);
-    --Wenge-Brown: hsl(30, 10%, 34%); /* / */
-    --Dark-Charcoal: hsl(24, 5%, 18%); /* / */
+    --Wenge-Brown: hsl(30, 10%, 34%);
+    --Dark-Charcoal: hsl(24, 5%, 18%);
 
     --s: 16px;
     --m: 24px;
@@ -54,17 +54,16 @@ main {
     max-width: 736px;
     width: 100%;
 
-    border-radius: 24px;
-
     display: grid;
     grid-template-columns: 32px 1fr 32px;
+    padding-bottom: 40px;
     row-gap: 32px;
 }
 
 img:nth-child(1){
     grid-column: 1 / 4;
-
     width: 100%;
+    margin-bottom: 10px;
 }
 
 section {
@@ -73,6 +72,54 @@ section {
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
+
+
+hr {
+    grid-column: 2 / 3;
+    border: 0;
+    border-top: 1px solid var(--Light-Grey);
+    /* height: 1px;
+    background-color: var(--Light-Grey); */
+}
+
+ul, ol {
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    padding-left: 7px;
+    position: relative;
+}
+
+ul > li,
+ol > li {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+}
+
+ol > li {
+    align-items: start;
+}
+
+ul li::before{
+    content: '•';
+    font-size: 22px;
+}
+
+ol {
+    counter-reset: my-awesome-counter;
+}
+
+ol li::before{
+    width: 5px;
+    counter-increment: my-awesome-counter;
+    content: counter(my-awesome-counter) ".";
+    font-weight: 700;
+    color:var(--Nutmeg)
 }
 
 section:nth-child(2){
@@ -85,21 +132,63 @@ section:nth-child(2) > h1 {
     font-weight: var(--reg);
 }
 
+/* --------- Preparation Time section --------- */
 section:nth-child(3){
     background-color: var(--Rose-White);
-    gap: 16px;
+    
+    padding: 28px;
+    border-radius: 12px;
+    gap: 16px;    
 }
 
+section:nth-child(3) > h2{
+    font-size: 20px;
+    font-weight: var(--bld);
+    color: var(--Dark-Raspberry);
+    font-family: "Outfit", serif;
+}
+
+/* --------- Ingredients section --------- */
 section:nth-child(4){
     
 }
 
+/* --------- Table section --------- */
 section:nth-child(5){
     
 }
 
+tr {
+    display: flex;
+    padding: 12px 32px;
+    justify-content: start;
+    gap: 16px;
+}
+
+tr:not(:last-child){
+    border-bottom: 1px solid var(--Light-Grey);
+}
+
+tr:first-child{
+    padding-top: 0;
+}
+
+tr:last-child {
+    padding-bottom: 0;
+}
+
+tr > td {
+    flex: 1;
+}
+
+tr > td:last-child {
+    color: var(--Nutmeg);
+}
+
 h1, h2 {
     font-family: "Young-Serif";
+    line-height: 100%;
+    font-weight: 400;
 }
 
 h1 {
@@ -108,15 +197,10 @@ h1 {
 
 h2 {
     color: var(--Nutmeg);
+    font-size: 28px;
 }
 
-section:nth-child(3) > h2 {
-    color: var(--Dark-Raspberry);
-}
 
-tr > td:last-child {
-    color: var(--Nutmeg);
-}
 
 @media screen and (min-width: 700px) {
     body {
@@ -126,10 +210,15 @@ tr > td:last-child {
     main {
         padding: 40px 0;
         grid-template-columns: 40px 1fr 40px;
+        border-radius: 24px;
     }
     
     img:nth-child(1){
         border-radius: 12px;
         grid-column: 2 / 3;
+    }
+
+    section:nth-child(2) > h1 {
+        font-size: 40px;
     }
 }
