@@ -17,6 +17,14 @@
     --Light-Grey: hsl(30, 18%, 87%);
     --Wenge-Brown: hsl(30, 10%, 34%); /* / */
     --Dark-Charcoal: hsl(24, 5%, 18%); /* / */
+
+    --s: 16px;
+    --m: 24px;
+    --l: 36px;
+
+    --reg: 400;
+    --bld: 600;
+    --bldr: 700;
 }
 
 /* simple css reset */
@@ -27,6 +35,7 @@
 * {
     margin: 0;
     padding: 0;
+    line-height: 150%;
 }
 
 body {
@@ -37,27 +46,48 @@ body {
     background-color: var(--Eggshell);
     color: var(--Wenge-Brown);
     font-family: "Outfit";
+    font-size: var(--s);
 }
 
 main {
     background-color: var(--White);
+    max-width: 736px;
+    width: 100%;
 
-    display: flex;
-    flex-direction: column;
+    border-radius: 24px;
 
-    max-width: 800px;
+    display: grid;
+    grid-template-columns: 32px 1fr 32px;
+    row-gap: 32px;
 }
 
 img:nth-child(1){
-    
+    grid-column: 1 / 4;
+
+    width: 100%;
+}
+
+section {
+    grid-column: 2 / 3;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
 section:nth-child(2){
     
 }
 
+section:nth-child(2) > h1 {
+    font-size: var(--l);
+    line-height: 100%;
+    font-weight: var(--reg);
+}
+
 section:nth-child(3){
     background-color: var(--Rose-White);
+    gap: 16px;
 }
 
 section:nth-child(4){
@@ -86,4 +116,20 @@ section:nth-child(3) > h2 {
 
 tr > td:last-child {
     color: var(--Nutmeg);
+}
+
+@media screen and (min-width: 700px) {
+    body {
+        padding: 123px 0;
+    }
+    
+    main {
+        padding: 40px 0;
+        grid-template-columns: 40px 1fr 40px;
+    }
+    
+    img:nth-child(1){
+        border-radius: 12px;
+        grid-column: 2 / 3;
+    }
 }
