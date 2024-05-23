@@ -17,17 +17,9 @@
     --Light-Grey: hsl(30, 18%, 87%);
     --Wenge-Brown: hsl(30, 10%, 34%);
     --Dark-Charcoal: hsl(24, 5%, 18%);
-
-    --s: 16px;
-    --m: 24px;
-    --l: 36px;
-
-    --reg: 400;
-    --bld: 600;
-    --bldr: 700;
 }
 
-/* simple css reset */
+/* ===== SIMPLE CSS RESET ===== */
 *, *::after, *::before {
     box-sizing: border-box;
 }
@@ -38,6 +30,7 @@
     line-height: 150%;
 }
 
+/* ===== BODY & MAIN ===== */
 body {
     display: flex;
     align-items: center;
@@ -46,7 +39,7 @@ body {
     background-color: var(--Eggshell);
     color: var(--Wenge-Brown);
     font-family: "Outfit";
-    font-size: var(--s);
+    font-size: 16px;
 }
 
 main {
@@ -60,12 +53,7 @@ main {
     row-gap: 32px;
 }
 
-img:nth-child(1){
-    grid-column: 1 / 4;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
+/* ===== GENERAL ===== */
 section {
     grid-column: 2 / 3;
 
@@ -74,13 +62,27 @@ section {
     gap: 24px;
 }
 
-
 hr {
     grid-column: 2 / 3;
+
     border: 0;
     border-top: 1px solid var(--Light-Grey);
-    /* height: 1px;
-    background-color: var(--Light-Grey); */
+}
+
+h1, h2 {
+    font-family: "Young-Serif";
+    line-height: 100%;
+    font-weight: 400;
+}
+
+h1 {
+    color: var(--Dark-Charcoal);
+    font-size: 36px;
+}
+
+h2 {
+    color: var(--Nutmeg);
+    font-size: 28px;
 }
 
 ul, ol {
@@ -111,28 +113,29 @@ ul li::before{
 }
 
 ol {
-    counter-reset: my-awesome-counter;
+    counter-reset: counter;
 }
 
 ol li::before{
     width: 5px;
-    counter-increment: my-awesome-counter;
-    content: counter(my-awesome-counter) ".";
+    counter-increment: counter;
+    content: counter(counter) ".";
     font-weight: 700;
     color:var(--Nutmeg)
 }
 
-section:nth-child(2){
-    
+/* ===== CONTENT ===== */
+/* IMG */
+img:nth-child(1){
+    grid-column: 1 / 4;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
-section:nth-child(2) > h1 {
-    font-size: var(--l);
-    line-height: 100%;
-    font-weight: var(--reg);
-}
+/* Title section */
 
-/* --------- Preparation Time section --------- */
+
+/* preparation time section */
 section:nth-child(3){
     background-color: var(--Rose-White);
     
@@ -143,21 +146,15 @@ section:nth-child(3){
 
 section:nth-child(3) > h2{
     font-size: 20px;
-    font-weight: var(--bld);
+    font-weight: 600;
     color: var(--Dark-Raspberry);
     font-family: "Outfit", serif;
 }
 
-/* --------- Ingredients section --------- */
-section:nth-child(4){
-    
-}
+/* ingredients section  */
 
-/* --------- Table section --------- */
-section:nth-child(5){
-    
-}
 
+/* table section  */
 tr {
     display: flex;
     padding: 12px 32px;
@@ -185,23 +182,7 @@ tr > td:last-child {
     color: var(--Nutmeg);
 }
 
-h1, h2 {
-    font-family: "Young-Serif";
-    line-height: 100%;
-    font-weight: 400;
-}
-
-h1 {
-    color: var(--Dark-Charcoal);
-}
-
-h2 {
-    color: var(--Nutmeg);
-    font-size: 28px;
-}
-
-
-
+/* ===== MEDIA ===== */
 @media screen and (min-width: 700px) {
     body {
         padding: 123px 0;
